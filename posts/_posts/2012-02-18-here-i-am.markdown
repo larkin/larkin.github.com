@@ -1,0 +1,9 @@
+---
+title: why i need a site
+layout: main
+---
+# people need to be able to find me
+And here I am-- pete richards at your service.  You can find me below:
+
+* twitter.com/larkinrichards
+* facebook.com/larkinrichards
