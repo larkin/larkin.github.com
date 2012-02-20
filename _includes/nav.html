@@ -1,14 +1,6 @@
-<div class="header">
-  <div class="header-inner">
-    <div class="container">
-      <div class="nav-btns">
-        <ul>
-          {% for link in site.categories.navigation %}
-            <li {% if link.active %}class="active" {% endif %}><a href="{{ link.link }}">{{ link.title }}</a></li>
-          {% endfor %}
-          
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="nav">
+  <ul>
+    <li><a href="/">Pete Richards</a></li>
+    <li><a href="/" class="sub">Home</a></li>
+  </ul>
 </div>

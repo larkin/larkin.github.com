@@ -1,76 +1,106 @@
-body {
+/* Global Resets */
+* {
+    margin: 0;
+    padding: 0;
     position: relative;
+}
+
+ul {
+    list-style: none;
+}
+
+a:visited {
+    color: black;
+}
+
+a:link {
+    color: black;
+}
+
+body {
     padding-top: 40px;
+    width: 40em;
+    margin: auto;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
+    font-size: 1em;
+    line-height: 1.5;
     color: #333;
 }
-
-.header {
-    position: fixed;
-    width: 100%;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    border-bottom: 1px solid black;
-    overflow: visible;
+h1, h2, h3, h4, h5, h6, h7 {
+    margin-top: 1em;
 }
 
-.header-inner {
-    background-color: #2c2c2c;
-    background-image: -webkit-linear-gradient(top, #333, #222);
-    background-repeat: repeat-x;
-}
+/* ============
+  NAVIGATION
+============ */
 
-.container {
-    width: 940px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.container:before, .container:after {
-    display: table;
-    content: "";
-}
-
-.container:after {
-    clear: both;
-}
-
-
-
-.nav-btns > ul {
-    position: relative;
-    left: 0;
-    margin: 0;
+.nav {
+    height: 2em;
     display: block;
-    float: left;
-    list-style: none;
 }
 
-.nav-btns > ul > li {
+.nav li {
     display: block;
     float: left;
 }
 
-.nav-btns > ul > li > a {
+.nav a {
     display: block;
-    float: left; 
-    color: #888; 
-    padding: 5 5 5 5;
-    text-decoration: none; 
-    text-align: center;
-}
-
-.nav-btns > ul > li > a:hover {
-    color: white;
-}
-.nav-btns > ul > .active > a, .active > a:hover {
-    color: white;
+    float: left;
+    margin-right: 2em;
+    font-size: 1.25em;
+    line-height: 1;
+    margin-top: .6em;  /* why does this work? */
     text-decoration: none;
-    background-color: #222;
 }
 
-.links {
-    list-style: none;
+.nav a.sub {
+    font-size: 1em;
+    margin-top: 1em;
+    color: #a0a0a0;
+}
+
+/* ========
+  CONTENT
+======== */
+
+.content {
+    margin-top: 2em;
+    font-size: .8em;
+}
+
+.posts {
+    font-size: 1em;
+}
+
+/* ======
+  POSTS  
+====== */
+.posts li span {
+    font-size: .9em;
+    margin-left: ;
+}
+
+.posts li a {
+    text-decoration: none;
+}
+
+/*========
+  FOOTER
+======= */
+
+.footer {
+    margin-top: 2em;
+    font-size: .8em;
+    color: #606060;
+}
+
+.footer a:visited, .footer a:link {
+    color: #606060;
+}
+
+.footer li > ul {
+    margin-right: 2em;
+    display: block;
+    float: left;
 }
