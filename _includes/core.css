@@ -1,33 +1,23 @@
 /* Global Resets */
-* {
+div, li, a {
     margin: 0;
     padding: 0;
     position: relative;
 }
 
-ul {
-    list-style: none;
-}
-
-a:visited {
+a:visited, a:link {
     color: black;
-}
-
-a:link {
-    color: black;
+    text-decoration: none;
 }
 
 body {
     padding-top: 40px;
-    width: 40em;
+    width: 640px;
     margin: auto;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1em;
-    line-height: 1.5;
+    font-size: 18px;
+/*    line-height: 27px;*/
     color: #333;
-}
-h1, h2, h3, h4, h5, h6, h7 {
-    margin-top: 1em;
 }
 
 /* ============
@@ -35,8 +25,14 @@ h1, h2, h3, h4, h5, h6, h7 {
 ============ */
 
 .nav {
-    height: 2em;
+    height: 45px;
     display: block;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav li {
@@ -45,19 +41,21 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 .nav a {
+    height: 27px;
+    font-size: 27px;
     display: block;
     float: left;
-    margin-right: 2em;
-    font-size: 1.25em;
-    line-height: 1;
-    margin-top: .6em;  /* why does this work? */
-    text-decoration: none;
+    color: #a0a0a0;
+    margin-left: 27px;
+    top: 17px;
 }
 
-.nav a.sub {
-    font-size: 1em;
-    margin-top: 1em;
-    color: #a0a0a0;
+.nav li:first-child > a {
+    height: 45px;
+    font-size: 45px;
+    margin-left: 0px;
+    color: black;
+    top: 0px;
 }
 
 /* ========
@@ -67,6 +65,21 @@ h1, h2, h3, h4, h5, h6, h7 {
 .content {
     margin-top: 2em;
     font-size: .8em;
+    min-height: 20em;
+    width: 100%;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+h3 {
+    font-style: italic;
+    margin-top: 0;
 }
 
 .posts {
@@ -90,9 +103,14 @@ h1, h2, h3, h4, h5, h6, h7 {
 ======= */
 
 .footer {
-    margin-top: 2em;
-    font-size: .8em;
+    margin-top: 18px;
+    font-size: 13px;
     color: #606060;
+}
+.footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .footer a:visited, .footer a:link {
@@ -100,7 +118,7 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 .footer li > ul {
-    margin-right: 2em;
+    margin-right: 27px;
     display: block;
     float: left;
 }

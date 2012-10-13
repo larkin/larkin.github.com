@@ -1,6 +1,8 @@
 ---
 permalink: /
-title: welcome
+title: Pete Richards
 layout: main
 ---
-{% include posts.html %}
+
+Yup, that's me.
+
