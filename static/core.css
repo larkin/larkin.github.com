@@ -1,46 +1,60 @@
+/* Design ideas:
+* stick to rule of thirds for layout
+
+
+
 /* Global Resets */
-div, li, a {
+
+* {
     margin: 0;
     padding: 0;
-    position: relative;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    background: transparent;
 }
+
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    color: #333;
+    padding-top: 40px;
+    margin: 0 auto;    
+    width: 720px;
+}
+
 
 a:visited, a:link {
     color: black;
     text-decoration: none;
 }
 
-body {
-    padding-top: 40px;
-    width: 640px;
-    margin: auto;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-/*    line-height: 27px;*/
-    color: #333;
-}
-
 /* ============
   NAVIGATION
 ============ */
 
-.nav {
+header {
     height: 45px;
+    width: 700px;
+    margin-left: 10px;
+    margin-right: 10px;
     display: block;
 }
 
-.nav ul {
+header ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.nav li {
+header li {
     display: block;
     float: left;
 }
 
-.nav a {
+header a {
     height: 27px;
     font-size: 27px;
     display: block;
@@ -50,13 +64,16 @@ body {
     top: 17px;
 }
 
-.nav li:first-child > a {
+header li:first-child > a {
     height: 45px;
     font-size: 45px;
     margin-left: 0px;
     color: black;
     top: 0px;
 }
+
+/* resume CSS */
+
 
 /* ========
   CONTENT
@@ -102,22 +119,22 @@ h3 {
   FOOTER
 ======= */
 
-.footer {
+footer {
     margin-top: 18px;
     font-size: 13px;
     color: #606060;
 }
-.footer ul {
+footer ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.footer a:visited, .footer a:link {
+footer a:visited, .footer a:link {
     color: #606060;
 }
 
-.footer li > ul {
+footer li > ul {
     margin-right: 27px;
     display: block;
     float: left;
