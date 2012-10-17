@@ -23,7 +23,9 @@ found that Picasa [supports email upload](http://support.google.com/picasa/bin/a
 but it doesn't allow you to default them to a single album, and I didn't want
 family pictures showing up in the wrong place.
 
-So, after a solid day of tinkering, I created [email-to-picasa](http://email-to-picasa.appspot.com).  It's a
-webapp that allows you to upload photos via email and have them be stored in a specific album.
+So, after a solid day of tinkering, I created [email-to-picasa](http://email-to-picasa.appspot.com).
+It's a webapp that allows you to upload photos via email and have them be
+stored in a specific album.  Add that email to your distribution list, and bam:
+all photos send to the group are automatically uploaded!
 
-Check it out.
+[Check it out.](http://email-to-picasa.appspot.com)
