@@ -110,8 +110,22 @@ header ul li a.active, header ul li a:hover {
     color: #ccc;
 }
 
+/* ===========
+
+Home Page CSS-- Simple!
+
+============ */
+
+#space_taker_upper {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    padding-left: 20px;
+    font-size: 45px;
+}
+
 /* ========
-  RESUME
+
+  Layout for Sections and Cards
 
 ======== */
 
@@ -183,23 +197,23 @@ section .card:last-child *:last-child{
     margin-bottom: 0px;
 }
 
-
-/* ========
-  CONTENT
-======== */
-
-
 /* ======
-  POSTS  
+  BLOG STUFF:
+  
+  
 ====== */
-.posts li span {
-    font-size: .9em;
-    margin-left: ;
+
+blockquote {
+    border-left: 4px solid #fcf;
+    padding-left: 16px;
+    font-style: italic;
+    margin-top: 1em;
 }
 
-.posts li a {
-    text-decoration: none;
+blockquote p {
+    padding-top: 0px;
 }
+
 
 /*========
   FOOTER

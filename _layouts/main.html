@@ -1,9 +1,9 @@
 <head>
 	<title>{{ page.title }}</title>
-	<link rel="stylesheet" href="static/core.css" type="text/css">
+	<link rel="stylesheet" href="/static/core.css" type="text/css">
 	{% if page.extra_css %}
 	{% assign extras = page.extra_css|split:' ' %}{% for extra in extras %}
-	<link rel="stylesheet" href="static/{{extra}}" type="text/css">{% endfor %}
+	<link rel="stylesheet" href="/static/{{extra}}" type="text/css">{% endfor %}
 	{% endif %}
 </head>
 
