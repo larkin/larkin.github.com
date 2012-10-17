@@ -1,43 +1,36 @@
 <head>
 	<title>{{ page.title }}</title>
 	<link rel="stylesheet" href="static/core.css" type="text/css">
+	{% if page.extra_css %}
 	{% assign extras = page.extra_css|split:' ' %}{% for extra in extras %}
 	<link rel="stylesheet" href="static/{{extra}}" type="text/css">{% endfor %}
+	{% endif %}
 </head>
 
 <body>
-	<header>
-		<div class="grid_1 alpha">
-			<p id='my_name'>
-				<a href="/">Pete Richards</a>
-			</p>
-		</div>
-		
+	<header class="clearfix">
+		<p id='my_name'>
+			<a href="/">Pete Richards</a>
+		</p>
 		<div class="grid_2 omega">
 			<ul id="navigation">
-				<li><a href="/resume.html">resume</a></li>
-				<li><a href="/blog.html">blog</a></li>
-				<li><a href="/gridtest.html">gridtest</a></li>
+				<li><a href="/resume.html"{% if page.nav_item == 'resume' %} class="active"{% endif %}>resume</a></li>
+				<li><a href="/blog.html"{% if page.nav_item == 'blog' %} class="active"{% endif %}>blog</a></li>
 			</ul>
 		</div>
 	</header>
   
 	{{ content }}
   
-	<footer>
-		<ul>
-			<li>
-				<ul>
-					<li>Pete Richards</li>
-					<li>pete@pete-richards.com</li>
-				</ul>
-			</li>
-			<li>
-				<ul>
-					<li><a href="http://www.github.com/larkin">github.com/larkin</a></li>        
-					<li><a href="http://www.twitter.com/larkinrichards">@larkinrichards</a></li>	        
-				</ul>
-			</li>
-		</ul>
+	<footer class="clearfix">
+		<div class="grid_3">
+			<ul>
+				<li><a href="mailto:pete@pete-richards.com">pete@pete-richards.com</a></li>
+				<li><a href="http://www.github.com/larkin">github.com/larkin</a></li>        
+				<li><a href="http://www.twitter.com/larkinrichards">@larkinrichards</a></li>	        
+			</ul>
+		</div>
 	</footer>
+	
+	
 </body>

@@ -1,5 +1,9 @@
 /* Design ideas:
-* stick to rule of thirds for layout
+* stick to rule of thirds for layout ...
+* use a 3 column grid, of sorts.
+
+
+*/
 
 
 
@@ -17,91 +21,173 @@
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    line-height: 27px;
-    color: #333;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000;
     padding-top: 40px;
+    padding-bottom: 40px;
     margin: 0 auto;    
-    width: 720px;
+    width: 960px;
 }
 
-
-a:visited, a:link {
-    color: black;
-    text-decoration: none;
+/* basic grid */
+.grid_1, .grid_2, .grid_3, section h1, footer p, header p {
+    display: inline;
+    float: left;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
 }
+
+.alpha, section h1, header p, footer p {
+    margin-left: 0px;
+}
+
+.omega {
+    margin-right: 0px;
+}
+
+.grid_1, section h1, header p, footer p {
+    width: 300px;
+}
+.grid_2 {
+    width: 620px;
+}
+.grid_3 {
+    width: 960px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 
 /* ============
   NAVIGATION
 ============ */
 
 header {
-    height: 45px;
-    width: 700px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-bottom: 40px;
     display: block;
+}
+
+header p {
+    display: block;
+    text-transform: uppercase;
+    background: #000;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-bottom: 40px;
+}
+
+header p a {
+    font-size: 45px;
+    line-height: 45px;
+    color: #CCC;
+    text-decoration: none;
 }
 
 header ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    float: right;
 }
 
-header li {
-    display: block;
+header ul li {
     float: left;
 }
 
-header a {
-    height: 27px;
+header ul li a {
+/*    float: left;*/
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+    width: 67px;
+    color: #000;
+    text-decoration: none;
+}
+
+header ul li a.active, header ul li a:hover {
+    background: #000;
+    color: #ccc;
+}
+
+/* ========
+  RESUME
+
+======== */
+
+section {
+    border-top: 2px solid #ccc;
+    display: block;
+    margin-bottom: 40px;
+}
+
+section ul {
+    list-style: none;
+}
+
+section ul li::before {
+    content: '\0200';
+    color: #fff;
+    border-left: 4px solid #fcf;
+}
+
+section h1 {
     font-size: 27px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    text-transform: uppercase;
+    background: #ccc;
+}
+
+section h2 {
+    font-size: 27px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+section h2 em {
+    font-size: 21px;
+    color: #ccc;
+    position: absolute;
+    right: 0px;
+}
+
+section h3 em {
+    color: #ccc;
+    position: absolute;
+    right: 0px;
+}
+
+section p {
     display: block;
-    float: left;
-    color: #a0a0a0;
-    margin-left: 27px;
-    top: 17px;
+    padding-top: 1em;
 }
 
-header li:first-child > a {
-    height: 45px;
-    font-size: 45px;
-    margin-left: 0px;
-    color: black;
-    top: 0px;
+.card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
 }
 
-/* resume CSS */
+section .card:last-child {
+    margin-bottom: 0px;
+    border-bottom: none;
+}
+
+.card *:last-child {
+    margin-bottom: 20px;
+}
+
+section .card:last-child *:last-child{
+    margin-bottom: 0px;
+}
 
 
 /* ========
   CONTENT
 ======== */
 
-.content {
-    margin-top: 2em;
-    font-size: .8em;
-    min-height: 20em;
-    width: 100%;
-}
-
-h1, h2, h3 {
-    font-weight: normal;
-}
-
-h2 {
-    margin-bottom: 0;
-}
-
-h3 {
-    font-style: italic;
-    margin-top: 0;
-}
-
-.posts {
-    font-size: 1em;
-}
 
 /* ======
   POSTS  
@@ -119,23 +205,80 @@ h3 {
   FOOTER
 ======= */
 
-footer {
-    margin-top: 18px;
-    font-size: 13px;
-    color: #606060;
+footer p {
+    display: block;
+    text-transform: uppercase;
+    background: #000;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 20px;
 }
+
+footer p a {
+    font-size: 45px;
+    line-height: 45px;
+    color: #CCC;
+    text-decoration: none;
+}
+
 footer ul {
+    float: right;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-footer a:visited, .footer a:link {
+footer li {
+    float: right;
+    clear: both;
+}
+
+footer ul a:visited, footer ul a:link {
     color: #606060;
+    text-decoration: none;
 }
 
 footer li > ul {
     margin-right: 27px;
     display: block;
     float: left;
+}
+
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearfix:before,
+.clearfix:after {
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearfix {
+  zoom: 1;
 }
