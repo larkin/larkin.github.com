@@ -1,14 +1,29 @@
-/* Design ideas:
-* stick to rule of thirds for layout ...
-* use a 3 column grid, of sorts.
+/* 
 
+# Preface:
+
+If you're reading this, and you're a designer, I'd love your feedback.  Most of
+what I know I have learned from photography and from my room mate.  The actual
+design of this site evolved over time and the design ideas (below) were not
+something I determined up front.
+
+Ideas?  Contact me at pete@pete-richards.com.
+
+
+# Guidelines:
+
+* stick to rule of thirds for layout, so use a 3 column grid (of sorts)
+* keep a simple hierarchy
+* header and footer counterbalance content.
+* content is organized into sections, containing a title, and one or more
+  "cards" of content.
+* use color very sparingly-- accents only.
 
 */
 
-
-
-/* Global Resets */
-
+/* ============================================================================
+    Global Resets
+============================================================================ */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +32,6 @@
     font-size: 100%;
     background: transparent;
 }
-
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -30,7 +44,10 @@ body {
     width: 960px;
 }
 
-/* basic grid */
+/* ============================================================================
+    Grid System
+============================================================================ */
+
 .grid_1, .grid_2, .grid_3, section h1, footer p, header p {
     display: inline;
     float: left;
@@ -60,9 +77,9 @@ body {
 }
 
 
-/* ============
-  NAVIGATION
-============ */
+/* ============================================================================
+    Navigation: Header and Footer
+============================================================================ */
 
 header {
     margin-bottom: 40px;
@@ -95,7 +112,6 @@ header ul li {
 }
 
 header ul li a {
-/*    float: left;*/
     display: block;
     text-align: center;
     font-size: 14px;
@@ -110,24 +126,64 @@ header ul li a.active, header ul li a:hover {
     color: #ccc;
 }
 
-/* ===========
+/* ============================================================================
+  FOOTER
+============================================================================ */
 
-Home Page CSS-- Simple!
+footer p {
+    display: block;
+    text-transform: uppercase;
+    background: #000;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 20px;
+}
 
-============ */
+footer p a {
+    font-size: 45px;
+    line-height: 45px;
+    color: #CCC;
+    text-decoration: none;
+}
+
+footer ul {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer li {
+    float: right;
+    clear: both;
+}
+
+footer ul a:visited, footer ul a:link {
+    color: #606060;
+    text-decoration: none;
+}
+
+footer li > ul {
+    margin-right: 27px;
+    display: block;
+    float: left;
+}
+
+
+/* ============================================================================
+    Home Page CSS-- Simple!
+============================================================================ */
 
 #space_taker_upper {
-    padding-top: 200px;
-    padding-bottom: 200px;
+    padding-top: 140px;
+    padding-bottom: 140px;
     padding-left: 20px;
     font-size: 45px;
 }
 
-/* ========
-
-  Layout for Sections and Cards
-
-======== */
+/* ============================================================================
+    Content: Sections and Cards
+============================================================================ */
 
 section {
     border-top: 2px solid #ccc;
@@ -202,11 +258,10 @@ section .card:last-child *:last-child{
     margin-bottom: 0px;
 }
 
-/* ======
-  BLOG STUFF:
-  
-  
-====== */
+/* ============================================================================
+    Blog:  wondering where this is?  It's hidden due to inactivity.
+    secretly, you can find it here: pete-richards.com/blog.html
+============================================================================ */
 
 blockquote {
     border-left: 4px solid #fcf;
@@ -220,51 +275,11 @@ blockquote p {
 }
 
 
-/*========
-  FOOTER
-======= */
 
-footer p {
-    display: block;
-    text-transform: uppercase;
-    background: #000;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    padding-left: 20px;
-}
 
-footer p a {
-    font-size: 45px;
-    line-height: 45px;
-    color: #CCC;
-    text-decoration: none;
-}
-
-footer ul {
-    float: right;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-footer li {
-    float: right;
-    clear: both;
-}
-
-footer ul a:visited, footer ul a:link {
-    color: #606060;
-    text-decoration: none;
-}
-
-footer li > ul {
-    margin-right: 27px;
-    display: block;
-    float: left;
-}
-
-/* `Clear Floated Elements
-----------------------------------------------------------------------------------------------------*/
+/* ============================================================================
+    Clearfixes:  I didn't write these, sources are noted.
+============================================================================ */
 
 /* http://sonspring.com/journal/clearing-floats */
 
