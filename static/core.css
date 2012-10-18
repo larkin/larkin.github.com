@@ -143,6 +143,12 @@ footer li {
     clear: right;
 }
 
+footer li::after {
+    content: '\0200';
+    color: #fff;
+    border-right: 4px solid #fcf;
+}
+
 footer a:visited,
 footer a:link {
     color: #606060;
