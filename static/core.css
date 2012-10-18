@@ -155,10 +155,20 @@ footer a:link {
 ============================================================================ */
 
 #space_taker_upper {
-    padding-top: 140px;
-    padding-bottom: 140px;
-    padding-left: 20px;
+    padding: 140px 20px;
+}
+
+#space_taker_upper > h1 {
+    font-weight: normal;
     font-size: 45px;
+    line-height: 63px;
+}
+
+#space_taker_upper > h2 {
+    font-weight: normal;
+    font-size: 21px;
+    clear: both;
+    margin-left: 20px;
 }
 
 /* ============================================================================
@@ -211,11 +221,17 @@ section > div > h2 em {
     color: #ccc;
     position: absolute;
     right: 0px;
+    top: 2px;
+}
+
+section > div > h3 {
+    margin-top: 5px;
 }
 
 section > div > h3 em {
     color: #ccc;
     position: absolute;
+    font-weight: normal;
     right: 0px;
 }
 
