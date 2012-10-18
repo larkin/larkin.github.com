@@ -6,13 +6,11 @@ nav_item: blog
 ---
 
 {% for post in site.posts %}
-<section class="clearfix">
+<section id="{{ post.date | date: "%Y-%m-%d" }}">
 	<h1>{{ post.date | date: "%Y-%m-%d" }}</h1>
-	<div class="grid_2 omega">
-		<div class="card post">
-			<h2>{{ post.title }}</h2>
-			{{ post.content }}
-		</div>
+	<div>
+		<h2>{{ post.title }}</h2>
+		{{ post.content }}
 	</div>
 </section>
 {% endfor %}

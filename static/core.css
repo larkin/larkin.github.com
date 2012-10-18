@@ -16,7 +16,7 @@ Ideas?  Contact me at pete@pete-richards.com.
 * keep a simple hierarchy
 * header and footer counterbalance content.
 * content is organized into sections, containing a title, and one or more
-  "cards" of content.
+  divs of content.
 * use color very sparingly-- accents only.
 
 */
@@ -31,6 +31,10 @@ Ideas?  Contact me at pete@pete-richards.com.
     outline: 0;
     font-size: 100%;
     background: transparent;
+}
+
+ul {
+    list-style: none;
 }
 
 body {
@@ -49,10 +53,14 @@ body {
 }
 
 /* ============================================================================
-    Grid System
+    Grid System:  The grid classes exist for when I experiment.  
+    Everything on the live site is optimized for clean html markup.
 ============================================================================ */
 
-.grid_1, .grid_2, .grid_3, section h1, footer p, header p {
+.grid_1, .grid_2, .grid_3, 
+header > a, header > ul,
+section > h1, section > div,
+footer > ul {
     display: inline;
     float: left;
     position: relative;
@@ -60,21 +68,30 @@ body {
     margin-right: 10px;
 }
 
-.alpha, section h1, header p, footer p {
+.alpha, 
+header > a, 
+section > h1 {
     margin-left: 0px;
 }
 
-.omega {
+.omega, 
+header > ul, 
+section > div {
     margin-right: 0px;
 }
 
-.grid_1, section h1, header p, footer p {
+.grid_1, 
+header > a, 
+section > h1 {
     width: 300px;
 }
-.grid_2 {
+.grid_2, 
+header > ul, 
+section > div {
     width: 620px;
 }
-.grid_3 {
+.grid_3, 
+footer > ul {
     width: 960px;
     margin-left: 0px;
     margin-right: 0px;
@@ -85,12 +102,11 @@ body {
     Navigation: Header and Footer
 ============================================================================ */
 
-header {
-    margin-bottom: 40px;
-    display: block;
-}
-
-header p {
+header > a {
+    font-size: 45px;
+    line-height: 45px;
+    color: #CCC;
+    text-decoration: none;
     display: block;
     text-transform: uppercase;
     background: #000;
@@ -99,20 +115,8 @@ header p {
     padding-bottom: 40px;
 }
 
-header p a {
-    font-size: 45px;
-    line-height: 45px;
-    color: #CCC;
-    text-decoration: none;
-}
-
-header ul {
-    list-style: none;
-    float: right;
-}
-
 header ul li {
-    float: left;
+    float: right;
 }
 
 header ul li a {
@@ -134,43 +138,15 @@ header ul li a.active, header ul li a:hover {
   FOOTER
 ============================================================================ */
 
-footer p {
-    display: block;
-    text-transform: uppercase;
-    background: #000;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    padding-left: 20px;
-}
-
-footer p a {
-    font-size: 45px;
-    line-height: 45px;
-    color: #CCC;
-    text-decoration: none;
-}
-
-footer ul {
-    float: right;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
 footer li {
     float: right;
-    clear: both;
+    clear: right;
 }
 
-footer ul a:visited, footer ul a:link {
+footer a:visited,
+footer a:link {
     color: #606060;
     text-decoration: none;
-}
-
-footer li > ul {
-    margin-right: 27px;
-    display: block;
-    float: left;
 }
 
 
@@ -195,17 +171,12 @@ section {
     margin-bottom: 40px;
 }
 
-section ul {
-    list-style: none;
+section:first-of-type {
+    margin-top: 40px;
 }
 
-section ul li::before {
-    content: '\0200';
-    color: #fff;
-    border-left: 4px solid #fcf;
-}
-
-section h1 {
+/* section header is an h1 inside the section */
+section > h1 {
     font-size: 27px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -214,51 +185,59 @@ section h1 {
     background: #ccc;
 }
 
-section h2 {
+/* despite grid system, cards float right.  This allows a single section to
+have multiple cards. */
+
+section > div {
+    float: right;
+    margin-top: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+section > div ul li::before {
+    content: '\0200';
+    color: #fff;
+    border-left: 4px solid #fcf;
+}
+
+section > div > h2 {
     font-size: 27px;
     font-style: normal;
     font-weight: normal;
 }
 
-section h2 em {
+section > div > h2 em {
     font-size: 21px;
     color: #ccc;
     position: absolute;
     right: 0px;
 }
 
-section h3 em {
+section > div > h3 em {
     color: #ccc;
     position: absolute;
     right: 0px;
 }
 
-section p {
-    display: block;
-    padding-top: 1em;
+section > div > p {
+    padding-top: 10px;
 }
 
-.card {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
-}
-
-section > div > .card p:first-child {
+section > div p:first-child {
     padding-top: 0px;
     margin-bottom: 10px;
 }
 
-section .card:last-child {
+section > div:last-child {
     margin-bottom: 0px;
     border-bottom: none;
 }
 
-.card *:last-child {
+section > div *:last-child {
     margin-bottom: 20px;
 }
 
-section .card:last-child *:last-child{
+section > div:last-child *:last-child{
     margin-bottom: 0px;
 }
 
@@ -278,9 +257,6 @@ blockquote p {
     padding-top: 0px;
 }
 
-
-
-
 /* ============================================================================
     Clearfixes:  I didn't write these, sources are noted.
 ============================================================================ */
@@ -298,6 +274,10 @@ blockquote p {
 
 /* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
 
+header:before,
+header:after,
+footer:before,
+footer:after,
 section:before,
 section:after,
 .clearfix:before,
@@ -310,6 +290,8 @@ section:after,
   height: 0;
 }
 
+header:after,
+footer:after,
 section:after, 
 .clearfix:after {
   clear: both;
@@ -319,7 +301,8 @@ section:after,
   The following zoom:1 rule is specifically for IE6 + IE7.
   Move to separate stylesheet if invalid CSS is a problem.
 */
-
+header,
+footer,
 section,
 .clearfix {
   zoom: 1;
