@@ -38,10 +38,14 @@ body {
     font-size: 14px;
     line-height: 21px;
     color: #000;
-    padding-top: 40px;
-    padding-bottom: 40px;
     margin: 0 auto;    
     width: 960px;
+    /* poll for any designers: does this look better "A:" */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    /* or "B:" 
+    padding-top: 0px;
+    padding-bottom: 0px; */
 }
 
 /* ============================================================================
@@ -294,6 +298,8 @@ blockquote p {
 
 /* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
 
+section:before,
+section:after,
 .clearfix:before,
 .clearfix:after {
   content: '\0020';
@@ -304,6 +310,7 @@ blockquote p {
   height: 0;
 }
 
+section:after, 
 .clearfix:after {
   clear: both;
 }
@@ -313,6 +320,7 @@ blockquote p {
   Move to separate stylesheet if invalid CSS is a problem.
 */
 
+section,
 .clearfix {
   zoom: 1;
 }
