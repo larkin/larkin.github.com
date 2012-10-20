@@ -1,0 +1,90 @@
+body {
+    margin: 0 auto;
+    width: 384px;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 48px;
+    background: black;
+}
+
+div, ul, li, a {
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    display: inline;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Button Style */
+li > a, #board > div{
+    background: #ccc;
+    border-top: 2px solid #eee;
+    border-left: 2px solid #eee;
+    box-shadow: inset -2px -2px 0 0 #aaa;
+    text-align: center;
+}
+
+#board > div:hover, li > a:hover {
+    background: #fcf;
+}
+
+/* Header, Actions, & Results */
+h1 {
+    width: 384px;
+    text-transform: uppercase;
+    color: #ccc;
+    background: #000;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+li > a {
+    width: 126px;
+    line-height: 44px;
+    text-transform: uppercase;
+}
+
+li:last-child > a {
+    margin-right: 0px;
+}
+
+#validate > span {
+    display: block;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}
+
+#results {
+    width: 384px;
+    min-height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ccc;
+}
+
+/* Game Board */
+
+#board {
+    width: 384px;
+    height: 384px;
+}
+
+#board > div.safe, #board > div.safe:hover {
+    background: #fff;
+    box-shadow: none;
+}
+
+#board > div.boom, #board > div.boom:hover {
+    background: #f00;
+    box-shadow: none;
+}
+
+#board > div {
+    width: 46px;
+    height: 46px;
+}
+
