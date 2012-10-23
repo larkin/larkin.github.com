@@ -144,7 +144,7 @@ footer li {
 }
 
 footer li::after {
-    content: '\0200';
+    content: '\0000a0';
     color: #fff;
     border-right: 4px solid #fcf;
 }
@@ -211,7 +211,7 @@ section > div {
 }
 
 section > div ul li::before {
-    content: '\0200';
+    content: '\0000a0';
     color: #fff;
     border-left: 4px solid #fcf;
 }
@@ -278,6 +278,20 @@ blockquote {
 blockquote p {
     padding-top: 0px;
 }
+
+/* ============================================================================
+    Print:  at some point I'll make a separate stylesheet for printing.  For
+    now, this should fix page breaks.
+============================================================================ */
+@media print{
+    #freelance > h2 {
+        page-break-before: always;
+    }
+    header > ul {
+        display: none;
+    }
+}
+
 
 /* ============================================================================
     Clearfixes:  I didn't write these, sources are noted.
