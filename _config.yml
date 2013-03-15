@@ -13,7 +13,7 @@ future:      true
 lsi:         false
 pygments:    false
 # markdown:    maruku
-markdown:    redcarpet2
+markdown:    redcarpet
 permalink:   date
 
 redcarpet:
