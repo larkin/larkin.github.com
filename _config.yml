@@ -12,15 +12,19 @@ plugins:     ./_plugins
 future:      true
 lsi:         false
 pygments:    false
-markdown:    maruku
+# markdown:    maruku
+markdown:    redcarpet2
 permalink:   date
 
-maruku:
-  use_tex:    false
-  use_divs:   false
-  png_engine: blahtex
-  png_dir:    images/latex
-  png_url:    /images/latex
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+
+# maruku:
+#   use_tex:    false
+#   use_divs:   false
+#   png_engine: blahtex
+#   png_dir:    images/latex
+#   png_url:    /images/latex
 
 rdiscount:
   extensions: []
