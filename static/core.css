@@ -240,6 +240,12 @@ section > div > h3 {
     margin-top: 5px;
 }
 
+section > div h4 {
+  font-size: 125%;
+  margin-top: 1em;
+  
+}
+
 section > div > h3 em {
     color: #ccc;
     position: absolute;
@@ -267,18 +273,22 @@ section > div p:first-child {
     margin-bottom: 10px;
 }
 
+section > div li {
+    margin-top: .5em;
+}
+
 section > div li > p {
     margin-bottom: 0px !important; 
 }
 
 section > div ol,
 section > div ul {
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
-  -webkit-padding-start: 0;
-  padding-left: 20px;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 0;
+    padding-left: 20px;
 }
 
 section > div:last-child {
@@ -311,8 +321,11 @@ blockquote p {
 }
 
 pre {
-  outline: 1px solid #fcf;
-  background-color: #eee;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    outline: 1px solid #fcf;
+    background-color: #eee;
+    padding: .5em;
 }
 
 /* ============================================================================

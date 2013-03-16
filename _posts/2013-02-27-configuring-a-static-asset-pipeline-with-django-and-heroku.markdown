@@ -9,7 +9,7 @@ Recently, I was tasked with overhauling the asset pipeline for a Django applicat
 
 This was my first major task in this code base, and needless to say, there was a lot to learn.  While I have experience running Django on a standard stack, this would be my first time working with Heroku, and I was surprised to find that this wasn't nearly as straightforward as I expected.  Hopefully my experiences here can help others get this set up correctly from the start.
 
-### Some Background: Django & Static Files
+#### Some Background: Django & Static Files
 
 When you're working in the development environment (`DEBUG = True` and using `manage.py runserver`), Django serves all static content for you from the `STATIC_URL`, allowing you to make changes to the static files and view them with a simple refresh.
 
@@ -17,7 +17,7 @@ Now, when you deploy to production and set `DEBUG = False`, Django no longer ser
 
 **But wait:** someone already figured out the code for deployments, and you don't have to!  As long as you're using the default `django.contrib.staticfiles` app, all you have to do is run `python manage.py collectstatic`, which collects all of your static assets and places them in the `STATIC_ROOT` you defined, which can then be served by your faithful webserver of choice.  But what if you don't control the webserver?
 
-### Enter Heroku
+#### Enter Heroku
 
 Now, Heroku is smart enough to automatically run collectstatic for you when you deploy code, and even includes some [troubleshooting advice][heroku-django], but unless you define a Django view to serve files from the `STATIC_ROOT`, you won't actually be serving these files.  And if you do use Django to serve these files, you are wasting valuable dyno hours on static files.
 
@@ -29,7 +29,7 @@ Unfortunately, Heroku's guide on using Django and static files has no actual det
 
 Why Django even includes instructions for using this code in production is beyond me.  Thankfully, a google search for "proper way to handle static files for django on heroku" turns up a [stack overflow answer][stack-overflow] from [intenex][souser] with the correct solution: use `django-storages`.  By implementing a different storage backend, such as S3, `collectstatic` will automatically collect your static files to S3 and serve them faithfully.
 
-### So here's how to set it up:
+#### So here's how to set it up:
 
 1.  Add `django-storages` and `boto` to your `requirements.txt` and run `pip install -r requirements.txt` to install them.
 
@@ -79,7 +79,7 @@ Why Django even includes instructions for using this code in production is beyon
 
 7.  You'll need to tell heroku to allow deployment scripts to access the AWS credentials in the environment by running `heroku labs:enable user-env-compile -a myapp`
 
-### Some Final Notes
+#### Some Final Notes
 
 **What about user uploaded media?** If you're using the Django forms module, and using FileField on your models, django-storages will automatically store your media in the correct place: S3 for production, and the local filesystem for development.
 
