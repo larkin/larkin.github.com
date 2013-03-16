@@ -1,48 +1,5 @@
-<head>
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="/static/core.css" type="text/css">
-</head>
+{% include header.html %}
 
-<body>
-  <header>
-    <a href="/">Pete Richards</a>
-    <ul id="navigation">
-      <li>
-        <a href="/resume.html"
-           {% if page.nav_item == 'resume' %}class="active"{% endif %}>
-          resume
-        </a>
-      </li>
-      
-      <li>
-          <a href="/blog.html"
-             {% if page.nav_item == 'blog' %}class="active"{% endif %}>
-            blog
-          </a>
-      </li>
-    </ul>
-  </header>
-  
-  {{ content }}
-  
-  <footer>
-    <ul id="links">
-      
-      <li>
-        <a href="mailto:pete@pete-richards.com">pete@pete-richards.com</a>
-      </li>
-      
-      <li>
-        <a href="http://www.github.com/larkin">github.com/larkin</a>
-      </li>
-      
-      <li>
-        <a href="http://www.twitter.com/larkinrichards">@larkinrichards</a>
-      </li>
-      
-    </ul>
-  </footer>
-  
-  <!-- Google Analytics Snippet -->
-  {% include ga_snippet.html %}
-</body>
+{{ content }}
+
+{% include footer.html %}

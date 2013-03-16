@@ -1,9 +1,9 @@
 ---
 title: Configuring a Static Asset Pipeline with Django and Heroku
-layout: main
+layout: post
 ---
 
-*Note:* this is a repost of something I originally wrote while at Refer.ly.  You can find the original post [here.][original-post]
+*Note:* this is a repost of something I originally wrote while at Refer.ly.  You can find the original post [here][original-post].
 
 Recently, I was tasked with overhauling the asset pipeline for a Django application being hosted on Heroku.  The idea being that we want static files to deploy seamlessly when we push new code and yet maintain a different set of static files while working in development, staging, and on production.  Additionally, user-uploaded media should work as expected: on production it should be uploaded to S3 and in development it should be stored locally.
 
@@ -21,13 +21,13 @@ Now, when you deploy to production and set `DEBUG = False`, Django no longer ser
 
 Now, Heroku is smart enough to automatically run collectstatic for you when you deploy code, and even includes some [troubleshooting advice][heroku-django], but unless you define a Django view to serve files from the `STATIC_ROOT`, you won't actually be serving these files.  And if you do use Django to serve these files, you are wasting valuable dyno hours on static files.
 
-Unfortunately, Heroku's guide on using Django and static files has no actual details on how you should configure Django to serve static files.  Even worse, a quick google search for “heroku static files django” returns a [number][sol1] of [solutions][sol3] that [directly contradict][sol2] the advice given in the [Django docs][dadvice], which is deserves to be quoted verbatim here(emphasis theirs):
+Unfortunately, Heroku's guide on using Django and static files has no actual details on how you should configure Django to serve static files.  Even worse, a quick google search for "heroku static files django" returns a [number][sol1] of [solutions][sol3] that [directly contradict][sol2] the advice given in the [Django docs][dadvice], which is deserves to be quoted verbatim here(emphasis theirs):
 
 > This view[static file serve] will only work if DEBUG is True.
 
 > That's because this view is **grossly inefficient** and **probably insecure**. This is only intended for local development, and should **never be used in production**.
 
-Why Django even includes instructions for using this code in production is beyond me.  Thankfully, a google search for “proper way to handle static files for django on heroku” turns up a [stack overflow answer][stack-overflow] from [intenex][souser] with the correct solution: use `django-storages`.  By implementing a different storage backend, such as S3, `collectstatic` will automatically collect your static files to S3 and serve them faithfully.
+Why Django even includes instructions for using this code in production is beyond me.  Thankfully, a google search for "proper way to handle static files for django on heroku" turns up a [stack overflow answer][stack-overflow] from [intenex][souser] with the correct solution: use `django-storages`.  By implementing a different storage backend, such as S3, `collectstatic` will automatically collect your static files to S3 and serve them faithfully.
 
 ### So here's how to set it up:
 

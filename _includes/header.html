@@ -1,0 +1,25 @@
+<head>
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/static/core.css" type="text/css">
+</head>
+
+
+<body>
+  <header>
+    <a href="/">Pete Richards</a>
+    <ul id="navigation">
+      <li>
+        <a href="/resume.html"
+           {% if page.nav_item == 'resume' %}class="active"{% endif %}>
+          resume
+        </a>
+      </li>
+      
+      <li>
+          <a href="/blog.html"
+             {% if page.nav_item == 'blog' %}class="active"{% endif %}>
+            blog
+          </a>
+      </li>
+    </ul>
+  </header>

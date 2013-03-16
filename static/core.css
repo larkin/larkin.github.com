@@ -192,6 +192,7 @@ section:first-of-type {
 }
 
 /* section header is an h1 inside the section */
+
 section > h1 {
     font-size: 27px;
     padding-top: 20px;
@@ -220,6 +221,11 @@ section > div > h2 {
     font-size: 27px;
     font-style: normal;
     font-weight: normal;
+}
+
+section > div > h2 > a {
+    text-decoration: none;
+    color: #000;
 }
 
 section > div > h2 em {
