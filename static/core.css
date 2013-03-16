@@ -247,6 +247,17 @@ section > div > h3 em {
     right: 0px;
 }
 
+section > div > p > a {
+    text-decoration: none;
+    color: #000;
+    border-bottom: 1px solid #fcf;
+}
+
+section > div > p > a:hover,
+section > div > p > a:active {
+    border-bottom: 1px solid #000;
+}
+
 section > div > p {
     padding-top: 10px;
 }
