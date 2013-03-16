@@ -267,6 +267,20 @@ section > div p:first-child {
     margin-bottom: 10px;
 }
 
+section > div li > p {
+    margin-bottom: 0px !important; 
+}
+
+section > div ol,
+section > div ul {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+  padding-left: 20px;
+}
+
 section > div:last-child {
     margin-bottom: 0px;
     border-bottom: none;
@@ -294,6 +308,11 @@ blockquote {
 
 blockquote p {
     padding-top: 0px;
+}
+
+pre {
+  outline: 1px solid #fcf;
+  background-color: #eee;
 }
 
 /* ============================================================================

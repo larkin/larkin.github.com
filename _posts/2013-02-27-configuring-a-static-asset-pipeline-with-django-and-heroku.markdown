@@ -64,7 +64,6 @@ Why Django even includes instructions for using this code in production is beyon
     if DEBUG:
         # Development storage using local files.
         STATIC_URL = '/static/'
-        ADMIN_MEDIA_PREFIX = '/static/admin/'
         MEDIA_URL = '/media/'
         MEDIA_ROOT = '/path/to/development/media'
     
@@ -73,7 +72,6 @@ Why Django even includes instructions for using this code in production is beyon
         DEFAULT_FILE_STORAGE = 's3storages.MediaStorage'
         STATICFILES_STORAGE = 's3storages.StaticStorage'
         STATIC_URL = 'https://s3.amazonaws.com/yourbucket/assets'
-        ADMIN_MEDIA_PREFIX = 'https://s3.amazonaws.com/yourbucket/assets/admin/'
         MEDIA_URL = 'https://s3.amazonaws.com/yourbucket/static/'
     ```
 
