@@ -1,0 +1,28 @@
+<html>
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="http://cdn.getchute.com/media-chooser.min.js"></script>
+</head>
+<body>
+  
+  <form>
+    <label>
+      Album Id
+      <input type="number" name="album"/>
+    </label>
+    <button type="submit">Launch Chooser</button>
+  </form>
+  
+  <script>
+  $(function() {
+    $('body').on('submit', function(e) {
+      e.preventDefault();
+      Chute.MediaChooser.choose({
+        album: $('[name=album]').val(),
+        app: '4f0b30a938ecef2020000003'
+      });
+    });
+  });
+  </script>
+</body>
+</html>
