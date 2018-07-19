@@ -52,6 +52,10 @@ body {
     padding-bottom: 0px; */
 }
 
+.hidden { /* Everyone needs one of these */
+    display: none;
+}
+
 /* ============================================================================
     Grid System:  The grid classes exist for when I experiment.  
     Everything on the live site is optimized for clean html markup.
@@ -208,13 +212,33 @@ have multiple cards. */
 section > div {
     float: right;
     margin-top: 20px;
-    border-bottom: 1px solid #ccc;
+}
+
+section > div.short {
+    border-bottom: none;
+}
+
+section > div.short p {
+    display: none;
+}
+
+section > div ul li {
+    position: relative;
 }
 
 section > div ul li::before {
     content: '\0000a0';
+    position: absolute;
+    top: 2px;
+    bottom: 5px;
+    left: -0.75em;
     color: #fff;
     border-left: 4px solid #fcf;
+}
+
+section > div ul.short-bullet li::before {
+    height: 1em;
+    bottom: auto;
 }
 
 section > div > h2 {
@@ -244,7 +268,6 @@ section > div > h3 {
 section > div h4 {
   font-size: 125%;
   margin-top: 1em;
-  
 }
 
 section > div > h3 em {
