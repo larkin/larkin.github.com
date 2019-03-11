@@ -5,9 +5,12 @@
 </head>
 
 
-<body>
+<body class="page-{{ page.nav_item }}">
   <header>
-    <a href="/"><span>Pete</span> Richards</a>
+    <a href="/">
+      <span>Pete</span>
+      <span>Richards</span>
+    </a>
     <ul id="navigation">
       <li>
         <a href="/resume.html"
@@ -16,11 +19,5 @@
         </a>
       </li>
       
-      <li>
-          <a href="/blog.html"
-             {% if page.nav_item == 'blog' %}class="active"{% endif %}>
-            blog
-          </a>
-      </li>
     </ul>
   </header>

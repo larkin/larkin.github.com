@@ -12,7 +12,7 @@ plugins_dir:     ./_plugins
 future:      true
 lsi:         false
 pygments:    true
-markdown:    redcarpet
+markdown:    kramdown
 permalink:   date
 
 redcarpet:

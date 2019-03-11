@@ -1,3 +1,6 @@
+---
+---
+
 /* 
 
 # Preface:
@@ -31,6 +34,7 @@ Ideas?  Contact me at pete@pete-richards.com.
     outline: 0;
     font-size: 100%;
     background: transparent;
+    box-sizing: border-box;
 }
 
 ul {
@@ -60,82 +64,137 @@ body {
     Grid System:  The grid classes exist for when I experiment.  
     Everything on the live site is optimized for clean html markup.
 ============================================================================ */
+$gutter: 4%;
+$width: 100% - $gutter;
+$left-col-width: 30%;
 
-.grid_1, .grid_2, .grid_3, 
-header > a, header > ul,
-section > h1, section > div,
-footer > ul {
-    display: inline;
-    float: left;
+%grid_container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+%grid_row {
     position: relative;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 100%;
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
-.alpha, 
-header > a, 
-section > h1 {
-    margin-left: 0px;
+%grid_column {
+    float: left;
+    margin-left: calc($gutter / 2);
+    margin-right: calc($gutter / 2);
+    &:first-child {
+        margin-left: 0;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
 }
 
-.omega, 
-header > ul, 
-section > div {
-    margin-right: 0px;
+%grid_column_left {
+    @extend %grid_column;
+    width: $left-col-width - calc($gutter / 2);
 }
 
-.grid_1, 
-header > a, 
-section > h1 {
-    width: 300px;
-}
-.grid_2, 
-header > ul, 
-section > div {
-    width: 620px;
-}
-.grid_3, 
-footer > ul {
-    width: 960px;
-    margin-left: 0px;
-    margin-right: 0px;
+%grid_column_right {
+    @extend %grid_column;
+    width: 100% - $left-col-width - calc($gutter / 2);
 }
 
+%grid_column_half {
+    @extend %grid_column;
+    width: 50% - calc($gutter / 2);
+}
+
+%grid_column_full {
+    @extend %grid_column;
+    width: 100%;
+}
+
+body {
+    > header, > footer, > section {
+        position: relative;
+        width: 100%;
+    }
+}
+
+header {
+    @extend %grid_row;
+    > a {
+        @extend %grid_column_left;
+    }
+    > ul {
+        @extend %grid_column_right;
+    }
+}
+
+section {
+    @extend %grid_container;
+    > .title, > .content {
+        @extend %grid_row; 
+    }
+    > .title {
+        > h1 {
+            @extend %grid_column_left;
+        }
+        > p {
+            @extend %grid_column_right;
+        }
+    }
+    > .content.two-column > * {
+        @extend %grid_column_half;
+    }
+    > .content.right {
+        @extend %grid_column_right;
+        margin-left: $left-col-width;
+    }
+}
 
 /* ============================================================================
     Navigation: Header and Footer
 ============================================================================ */
 
-header > a {
-    font-size: 45px;
-    line-height: 45px;
-    color: #CCC;
-    text-decoration: none;
-    display: block;
-    text-transform: uppercase;
-    background: #000;
-    padding-top: 40px;
-    padding-left: 20px;
-    padding-bottom: 40px;
-}
-
-header ul li {
-    float: right;
-}
-
-header ul li a {
-    display: block;
-    text-align: center;
-    font-size: 14px;
-    padding: 5px;
-    width: 67px;
-    color: #000;
-    text-decoration: none;
-}
-
-header ul li a.active, header ul li a:hover {
-    background: #000;
-    color: #ccc;
+header {
+    margin-bottom: 40px;
+    
+    > a {
+        font-size: 45px;
+        line-height: 45px;
+        color: #CCC;
+        text-decoration: none;
+        display: block;
+        text-transform: uppercase;
+        background: #000;
+        padding-top: 40px;
+        padding-left: 20px;
+        padding-bottom: 40px;
+    }
+    
+    ul li {
+        float: right;
+        
+        a {
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            padding: 5px;
+            width: 67px;
+            color: #000;
+            text-decoration: none;
+            
+            &.active, &:hover {
+                background: #000;
+                color: #ccc;
+            }
+        }
+        
+        
+    }
 }
 
 /* ============================================================================
@@ -164,6 +223,10 @@ footer a:link {
     Home Page CSS-- Simple!
 ============================================================================ */
 
+.page- header {
+    margin-bottom: 0px;
+}
+
 #space_taker_upper {
     padding: 140px 20px;
 }
@@ -188,125 +251,127 @@ footer a:link {
 section {
     border-top: 2px solid #ccc;
     display: block;
-    margin-bottom: 40px;
+    margin-bottom: 2.5em;
+    
+    > .title {
+        margin-bottom: 1.5em;
+        /* section title */
+        > h1 {
+            float: left;
+            font-size: 27px;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            text-transform: uppercase;
+            background: #ccc;
+        }
+        /* section summary, if present. */
+        > p {
+            float: left;
+            padding: 10px 0px;
+        }
+    }
+    
+    > .content {
+        
+    }
 }
+        
 
-section:first-of-type {
-    margin-top: 40px;
-}
+/* Allow a single section to have multiple divisions of content. */
 
-/* section header is an h1 inside the section */
-
-section > h1 {
-    font-size: 27px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    text-transform: uppercase;
-    background: #ccc;
-}
-
-/* despite grid system, cards float right.  This allows a single section to
-have multiple cards. */
-
-section > div {
-    float: right;
+section > .content > div {
     margin-top: 20px;
+    &:first-child {
+        margin-top: 0px;
+    };
 }
 
-section > div.short {
-    border-bottom: none;
+section ul {
+    li {
+        position: relative;
+    }
+    li::before {
+        content: '\0000a0';
+        position: absolute;
+        top: 4px;
+        bottom: 5px;
+        left: 5px;
+        color: #fff;
+        border-left: 4px solid #fcf;
+    }
+    &.short-bullet li::before {
+        height: 1em;
+        bottom: auto;
+    }
 }
 
-section > div.short p {
-    display: none;
-}
-
-section > div ul li {
+section > .content > div > h2 {
     position: relative;
-}
-
-section > div ul li::before {
-    content: '\0000a0';
-    position: absolute;
-    top: 2px;
-    bottom: 5px;
-    left: -0.75em;
-    color: #fff;
-    border-left: 4px solid #fcf;
-}
-
-section > div ul.short-bullet li::before {
-    height: 1em;
-    bottom: auto;
-}
-
-section > div > h2 {
     font-size: 27px;
     line-height: 1;
     font-style: normal;
     font-weight: normal;
 }
 
-section > div > h2 > a {
+section > .content > div > h2 > a {
     text-decoration: none;
     color: #000;
 }
 
-section > div > h2 em {
+section > .content > div > h2 em {
     font-size: 21px;
-    color: #ccc;
+    color: #606060;
     position: absolute;
     right: 0px;
     top: 2px;
 }
 
-section > div > h3 {
+section > .content > div > h3 {
     margin-top: 5px;
 }
 
-section > div h4 {
+section > .content > div h4 {
   font-size: 125%;
   margin-top: 1em;
 }
 
-section > div > h3 em {
-    color: #ccc;
+section > .content > div > h3 em {
+    color: #606060;
     position: absolute;
     font-weight: normal;
     right: 0px;
 }
 
-section > div > p > a {
+section > .content > div > p > a {
     text-decoration: none;
     color: #000;
     border-bottom: 1px solid #fcf;
 }
 
-section > div > p > a:hover,
-section > div > p > a:active {
+section > .content > div > p > a:hover,
+section > .content > div > p > a:active {
     border-bottom: 1px solid #000;
 }
 
-section > div > p {
+section > .content > div > p {
     padding-top: 10px;
 }
 
-section > div p:first-child {
+section > .content > div p:first-child {
     padding-top: 0px;
     margin-bottom: 10px;
 }
 
-section > div li {
+section > .content li {
     margin-top: .5em;
 }
 
-section > div li > p {
-    margin-bottom: 0px !important; 
+section > .content li > p {
+    margin-bottom: 0px !important;
 }
 
-section > div ol,
-section > div ul {
+section .content li {
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
     -webkit-margin-start: 0;
@@ -315,16 +380,12 @@ section > div ul {
     padding-left: 20px;
 }
 
-section > div:last-child {
+section > .content > div:last-child {
     margin-bottom: 0px;
     border-bottom: none;
 }
 
-section > div *:last-child {
-    margin-bottom: 20px;
-}
-
-section > div:last-child *:last-child{
+section > .content > div:last-child *:last-child{
     margin-bottom: 0px;
 }
 
@@ -352,67 +413,22 @@ pre {
     padding: .5em;
 }
 
+
 /* ============================================================================
     Print:  at some point I'll make a separate stylesheet for printing.  For
     now, this should fix page breaks.
 ============================================================================ */
-@media print{
-    #freelance > h2 {
-        page-break-before: always;
-    }
+@media print {
     header > ul {
         display: none;
     }
-}
-
-
-/* ============================================================================
-    Clearfixes:  I didn't write these, sources are noted.
-============================================================================ */
-
-/* http://sonspring.com/journal/clearing-floats */
-
-.clear {
-  clear: both;
-  display: block;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
-  height: 0;
-}
-
-/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
-
-header:before,
-header:after,
-footer:before,
-footer:after,
-section:before,
-section:after,
-.clearfix:before,
-.clearfix:after {
-  content: '\0020';
-  display: block;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
-  height: 0;
-}
-
-header:after,
-footer:after,
-section:after, 
-.clearfix:after {
-  clear: both;
-}
-
-/*
-  The following zoom:1 rule is specifically for IE6 + IE7.
-  Move to separate stylesheet if invalid CSS is a problem.
-*/
-header,
-footer,
-section,
-.clearfix {
-  zoom: 1;
+    body {
+        position: relative;
+        padding-top: 0px;
+        > footer {
+            position: absolute;
+            top: 40px;
+            right: 0px;
+        }
+    }
 }
